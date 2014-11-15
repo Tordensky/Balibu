@@ -10,7 +10,6 @@ var app = express();
 app.use(express.static('dist'));
 app.use(historyApiFallback);
 app.use(express.static('public'));
-
 app.use(function(err, req, res, next){
     console.error(err.stack);
     next(err);
