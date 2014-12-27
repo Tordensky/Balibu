@@ -22,3 +22,4 @@ app.use(function(err, req, res, next) {
 
 var server = http.createServer(app);
 server.listen(9999);
+console.log("Server running on: localhost:9999");
