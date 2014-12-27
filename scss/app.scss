@@ -1,18 +1,36 @@
-body {
-  background-color: white;
+html, body, .container, .app {
+  background-color: #fffdfd;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  height: 100%;
 }
 
 .logo-beholder {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 100;
 }
 
 .logo {
-    width: 70%;
-    margin-top: 10%;
+  height: 400px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .locationMap {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
+
+.side-innhold {
+  height: 100%;
+  background-color: #00445D;
+  position: relative;
+  top: -80px;
+}
+

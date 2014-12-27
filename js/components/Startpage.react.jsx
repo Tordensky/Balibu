@@ -7,9 +7,10 @@ var LocationMap = require('./LocationMap.react');
 module.exports = React.createClass({
     render: function() {
         return (
-                <div>
+                <div className='app'>
                     <Logo />
-                    <LocationMap />
+                    <div className='side-innhold'>
+                    </div>
                 </div>
             );
     }
