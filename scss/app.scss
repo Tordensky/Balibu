@@ -1,3 +1,5 @@
+@import "widgets/wheather";
+
 html, body, .container, .app {
   background-color: #fffdfd;
   height: 100%;
@@ -18,7 +20,7 @@ html, body, .container, .app {
 
 .logo {
   height: 400px;
-  margin-top: 20px;
+  margin-top: -120px;
   margin-left: 20px;
 }
 

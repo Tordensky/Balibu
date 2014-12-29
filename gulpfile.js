@@ -54,7 +54,7 @@ gulp.task('watch-js', browserifyTask(watchifyOpts.toJS()));
 gulp.task('build-sass', function () {
     gulp.src(paths.sass.src)
         .pipe(sass())
-        .pipe(myth({ compress: true }))
+        //.pipe(myth({ compress: true }))
         .pipe(rename('bundle.css'))
         .pipe(gulp.dest(paths.dist))
         .pipe(livereload());
