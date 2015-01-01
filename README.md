@@ -1,4 +1,4 @@
 Balibu
 ======
 
-App for den kuleste hytta på Hallingskarvet
+App for hytta på Hallingskarvet
