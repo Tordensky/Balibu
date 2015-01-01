@@ -1,0 +1,47 @@
+.wheather-container {
+  height: 100px;
+  width: 100%;
+
+  padding: 100px 20px 0 20px;
+
+  &:after {
+    content: '';
+    display: table;
+    clear:both;
+  }
+
+}
+
+.weather-widget {
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  padding: 0 50px
+}
+
+.weather-icon {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.weather-temp {
+  color: white;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+
+  &:after {
+    content: '°';
+  }
+}
+
+.weather-location {
+  text-align: center;
+  color: white;
+  padding-top: 0.4rem;
+  font-family: arial;
+  font-size: 1.7rem;
+}

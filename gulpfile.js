@@ -12,6 +12,9 @@ var Immutable = require('immutable');
 var streamify = require('gulp-streamify');
 var browserify = require('browserify');
 var runSequence = require('run-sequence');
+var sass = require('gulp-sass');
+var livereload = require('gulp-livereload');
+
 
 var paths = {
     js: {
@@ -21,6 +24,10 @@ var paths = {
     css: {
         all: './css/**/*.css',
         src: './css/app.css'
+    },
+    sass: {
+        all: './scss/**/*.scss',
+        src: './scss/app.scss'
     },
     dist: './dist'
 };
@@ -37,20 +44,24 @@ gulp.task('build', function(cb) {
 });
 
 gulp.task('watch', function(cb) {
-    runSequence('clean', ['watch-css', 'watch-js'], cb);
+    livereload.listen();
+    runSequence('clean', ['watch-sass', 'watch-js'], cb);
 });
 
 gulp.task('build-js', browserifyTask(browserifyOpts.toJS()));
 gulp.task('watch-js', browserifyTask(watchifyOpts.toJS()));
 
-gulp.task('build-css', function () {
-    return gulp.src(paths.css.src)
-        .pipe(myth({ compress: true }))
+gulp.task('build-sass', function () {
+    gulp.src(paths.sass.src)
+        .pipe(sass())
+        //.pipe(myth({ compress: true }))
         .pipe(rename('bundle.css'))
-        .pipe(gulp.dest(paths.dist));
+        .pipe(gulp.dest(paths.dist))
+        .pipe(livereload());
 });
-gulp.task('watch-css', ['build-css'], function() {
-    gulp.watch(paths.css.all, ['build-css']);
+
+gulp.task('watch-sass', ['build-sass'], function() {
+    gulp.watch(paths.sass.all, ['build-sass']);
 });
 
 gulp.task('clean', function(cb) {
@@ -97,8 +108,8 @@ function browserifyTask(options) {
                 .pipe(source(dest))
                 // .pipe(streamify(uglify()))
                 .pipe(gulp.dest(dist));
-        };
+        }
 
     };
-};
+}
 

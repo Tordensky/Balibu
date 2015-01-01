@@ -125,8 +125,8 @@
 	2234.994,1035.039 2198.684,1061.42 2212.553,1018.735 2176.242,992.354 2221.125,992.354 "/>
 <polygon fill="#0092C8" points="2780.986,1182.637 2793.418,1220.895 2833.643,1220.895 2801.1,1244.537 2813.529,1282.793 
 	2780.986,1259.149 2748.443,1282.793 2760.875,1244.537 2728.332,1220.895 2768.557,1220.895 "/>
-<text transform="matrix(1 0 0 1 3335.8916 2301.4365)" fill="#00B7F1" font-family="'DINPro-Light'" font-size="551.7805" letter-spacing="-4"> spa og resort</text>
-<text transform="matrix(1 0 0 1 3396.708 1771.1006)" fill="#00445D" font-family="'DINPro-Bold'" font-size="1137.7231">Balibu</text>
+<text transform="matrix(1 0 0 1 3400 2171.1006)" fill="#00445D" font-family="'Arial'" font-size="1137.7231">Balibu</text>
+<text transform="matrix(1 0 0 1 3450 2501.4365)" fill="#00B7F1" font-family="'Arial'" font-size="500" letter-spacing="-4"> spa og resort</text>
 <line fill="none" stroke="#00B7F1" stroke-width="2" stroke-miterlimit="10" x1="1283.158" y1="1959.979" x2="394.841" y2="2639.385"/>
 <line fill="none" stroke="#00B7F1" stroke-width="2" stroke-miterlimit="10" x1="1133.859" y1="1652.641" x2="394.841" y2="1791.118"/>
 <line fill="none" stroke="#00B7F1" stroke-width="2" stroke-miterlimit="10" x1="1133.859" y1="1298.454" x2="0.294" y2="949.668"/>
