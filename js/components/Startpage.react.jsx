@@ -11,7 +11,7 @@ module.exports = React.createClass({
                 <div className='app'>
                     <Logo />
                     <div className='side-innhold'>
-                    <Wheather />
+                        <Wheather />
                     </div>
                 </div>
             );

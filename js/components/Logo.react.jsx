@@ -5,7 +5,7 @@ module.exports = React.createClass({
     render: function() {
         return (
                 <div className="logo-beholder">
-                    <img className="logo" src='images/balibu-logo-side.svg'/>
+                    <img className="logo" src='images/balibu-logo-test.svg'/>
                 </div>
             );
     }
