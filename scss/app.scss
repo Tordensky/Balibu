@@ -10,6 +10,13 @@ body {
   margin: 0 auto;
 }
 
+canvas {
+  position: absolute;
+  display: block;
+
+  z-index: 100;
+}
+
 .app {
   height: 100%;
 }
