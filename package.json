@@ -16,7 +16,6 @@
         "react-googlemaps": "^0.3.0",
         "twit": "^1.1.18",
         "ws": "^0.4.32",
-        // dev
         "browserify": "^6.0.3",
         "del": "^0.1.3",
         "gulp": "^3.8.8",
