@@ -2,7 +2,7 @@
     "name": "Twitterized",
     "private": true,
     "scripts": {
-        "start": "node app",
+        "start": "node app.js",
         "postinstall": "node node_modules/.bin/gulp default"
     },
     "dependencies": {
