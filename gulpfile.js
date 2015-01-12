@@ -40,7 +40,7 @@ var watchifyOpts = browserifyOpts.set('watch', true);
 gulp.task('default', ['build']);
 
 gulp.task('build', function(cb) {
-    runSequence('clean', ['build-css', 'build-js'], cb);
+    runSequence('clean', ['build-sass', 'build-js'], cb);
 });
 
 gulp.task('watch', function(cb) {
