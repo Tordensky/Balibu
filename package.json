@@ -2,12 +2,11 @@
     "name": "Twitterized",
     "private": true,
     "scripts": {
-        "start": "node app.js",
-        "postinstall": "node node_modules/.bin/gulp default"
+        "build": "node node_modules/.bin/gulp default"
     },
     "dependencies": {
         "connect-history-api-fallback": "0.0.5",
-        "express": "^4.9.6",
+        "express": "4.4.4",
         "flux": "^2.0.1",
         "immutable": "^2.2.1",
         "jquery": "^2.1.1",

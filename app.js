@@ -28,5 +28,7 @@ app.get('api/weather/:city', function(req, res){
 });
 
 var server = http.createServer(app);
-server.listen(9999);
-console.log("Server running on: localhost:9999");
+
+var port = process.env.PORT || 9999;
+app.listen(port);
+console.log("Server running on: localhost:", port);
