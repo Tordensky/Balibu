@@ -2,7 +2,7 @@
     "name": "Twitterized",
     "private": true,
     "scripts": {
-        "build": "node node_modules/.bin/gulp default"
+        "postinstall": "node node_modules/.bin/gulp default"
     },
     "dependencies": {
         "connect-history-api-fallback": "0.0.5",
