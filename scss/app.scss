@@ -4,6 +4,7 @@ html, body, .container, .app {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: #00445D;
 }
 
 body {
@@ -18,7 +19,6 @@ canvas {
 }
 
 .app {
-  height: 100%;
 }
 
 .logo-beholder {
@@ -40,8 +40,6 @@ canvas {
 }
 
 .side-innhold {
-  height: 100%;
-
   margin-top: -10px;
   padding: 0;
   background-color: #00445D;

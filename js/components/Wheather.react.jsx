@@ -21,7 +21,6 @@ module.exports = React.createClass({
                 <WheatherWidget location={'Geilo'} temp={'- 5'} />
                 <WheatherWidget location={'Ål'} temp={'- 9'} />
                 <WheatherWidget location={'Oslo'} temp={'3'} />
-                <WheatherWidget location={'New york'} temp={'15'} />
             </div>
             )
     }
