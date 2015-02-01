@@ -1,6 +1,7 @@
 var React = require('react');
+var App = require('./elements/App');
+
 require('./snow');
-var App = require('./components/App.react');
 
 React.renderComponent(
     <App />,

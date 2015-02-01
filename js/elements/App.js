@@ -1,7 +1,7 @@
 var React = require('react');
 var page = require("page");
 
-var Startpage = require('./Startpage.react');
+var Startpage = require('./Startpage');
 
 module.exports = React.createClass({
     getInitialState: function() {

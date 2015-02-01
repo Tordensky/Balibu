@@ -20,7 +20,7 @@
 }
 
 .weather-icon {
-  width: 70%;
+  width: 40%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -30,8 +30,9 @@
   color: white;
   font-family: Arial;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
+  padding-top: 1rem;
 
   &:after {
     content: '°';
@@ -41,7 +42,7 @@
 .weather-location {
   text-align: center;
   color: white;
-  padding-top: 0.4rem;
+  padding-top: 1rem;
   font-family: arial;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
 }

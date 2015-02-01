@@ -4,7 +4,7 @@ var WheatherWidget = React.createClass({
     render: function () {
         return (
             <div className='weather-widget'>
-                <img className="weather-icon" src='images/test.png'/>
+                <img className="weather-icon" src='images/05d.svg'/>
                 <div className='weather-temp'>{this.props.temp}</div>
                 <div className='weather-location'>{this.props.location}</div>
             </div>

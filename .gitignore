@@ -1,9 +1,9 @@
 
 node_modules/
-dist/
+dist/**/*.*
 twitter.json
 
-.idea
-.log
+*.idea
+*.log
 
 
