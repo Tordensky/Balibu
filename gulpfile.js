@@ -16,10 +16,6 @@ var paths = {
         all: './js/**/*.*',
         dest: 'bundle.js'
     },
-    css: {
-        all: './css/**/*.css',
-        src: './css/app.css'
-    },
     sass: {
         all: './scss/**/*.scss',
         src: './scss/app.scss'

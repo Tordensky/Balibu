@@ -3,7 +3,7 @@ var App = require('./elements/App');
 
 require('./snow');
 
-React.renderComponent(
+React.render(
     <App />,
     document.getElementById('app')
 );

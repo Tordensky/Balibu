@@ -1,4 +1,9 @@
+var $ = require('jquery');
 var React = require("react");
+
+function getWheater(location) {
+    return $.get( "/api/weather/" + location);
+}
 
 var WheatherWidget = React.createClass({
     render: function () {
@@ -14,6 +19,16 @@ var WheatherWidget = React.createClass({
 
 
 module.exports = React.createClass({
+    componentWillMount: function() {
+        var that = this;
+        getWheater("oslo").done(function (response) {
+            console.log("got data print dAAA", response);
+            console.log($.parseXML(response));
+
+            that.setState({wheatherData: "hurra"});
+        });
+    },
+
     render: function () {
         return (
             <div className='wheather-container'>
