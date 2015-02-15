@@ -1,17 +1,23 @@
 var $ = require('jquery');
 var React = require("react");
+var momement = require('moment');
+
+// BALIBU LOCATION 60.6523156, 8.0265064,2137
 
 function getWheater(location) {
-    return $.get( "/api/weather/" + location);
+    return $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric");
 }
 
 var WheatherWidget = React.createClass({
+    DAYS: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"],
     render: function () {
+        var dayName = this.DAYS[momement(this.props.data.dt*1000).weekday()];
+        var icon = this.props.data.weather[0].icon;
         return (
             <div className='weather-widget'>
-                <img className="weather-icon" src='images/05d.svg'/>
-                <div className='weather-temp'>{this.props.temp}</div>
-                <div className='weather-location'>{this.props.location}</div>
+                <img className="weather-icon" src={'http://openweathermap.org/img/w/'+icon+'.png'}/>
+                <div className='weather-temp'>{Math.round(this.props.data.temp.day, 2)}</div>
+                <div className='weather-location'>{dayName}</div>
             </div>
             )
     }
@@ -19,23 +25,29 @@ var WheatherWidget = React.createClass({
 
 
 module.exports = React.createClass({
+    getInitialState: function () {
+        return {wheatherData: null};
+    },
+
     componentWillMount: function() {
         var that = this;
-        getWheater("oslo").done(function (response) {
-            console.log("got data print dAAA", response);
-            console.log($.parseXML(response));
-
-            that.setState({wheatherData: "hurra"});
+        getWheater("oslo").done(function (wheatherData) {
+            console.log("got data", wheatherData);
+            that.setState({wheatherData: wheatherData});
         });
     },
 
     render: function () {
+        var wheatherWidgets;
+        if (this.state.wheatherData) {
+            wheatherWidgets = this.state.wheatherData.list.map(function (data, index) {
+                return (<WheatherWidget key={index} data={data} />);
+            });
+        }
+
         return (
             <div className='wheather-container'>
-                <WheatherWidget location={'Hallingskarvet'} temp={'- 10'} />
-                <WheatherWidget location={'Geilo'} temp={'- 5'} />
-                <WheatherWidget location={'Ål'} temp={'- 9'} />
-                <WheatherWidget location={'Oslo'} temp={'3'} />
+                {wheatherWidgets}
             </div>
             )
     }
