@@ -1,6 +1,9 @@
 {
   "name": "Balibu",
   "private": true,
+  "scripts": {
+        "postinstall": "node node_modules/.bin/gulp default"
+    },
   "dependencies": {
     "browserify": "^6.0.3",
     "connect-history-api-fallback": "0.0.5",
