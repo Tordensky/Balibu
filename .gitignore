@@ -2,8 +2,11 @@
 node_modules/
 dist/**/*.*
 twitter.json
+.DS_Store
 
 *.idea
 *.log
+
+
 
 
