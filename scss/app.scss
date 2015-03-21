@@ -1,10 +1,17 @@
 @import "widgets/wheather";
 
+@font-face {
+  font-family: BebasNeue;
+  font-weight: normal;
+  src: url("fonts/BebasNeueRegular.otf") format("opentype");
+}
+
 html, body, .container, .app {
   height: 100%;
   margin: 0;
   padding: 0;
   background-color: #00445D;
+  font-family: 'BebasNeue', cursive;
 }
 
 body {

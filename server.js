@@ -21,16 +21,13 @@ app.use(function (err, req, res, next) {
 });
 
 
-app.get('/api/weather/:city', function (req, res) {
-    var city = req.param('city');
-
-    console.log("Got request for wheateher in: ", city);
+app.get('/api/weather', function (req, res) {
+    console.log("Got request for wheateher in: ");
 
     var options = {
-        host: "www.yr.no",
+        host: "http://api.openweathermap.org",
         port: 80,
-        path: '/sted/Norge/Telemark/Sauherad/Gvarv/varsel.xml',
-        type: 'text/xml',
+        path: '/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c',
         method: 'GET'
     };
 
@@ -39,12 +36,13 @@ app.get('/api/weather/:city', function (req, res) {
         console.log('HEADERS: ' + JSON.stringify(response.headers));
         var data = "";
         response.on('data', function (chunk) {
+            console.log(chunk);
             data += chunk;
         });
 
         response.on('end', function () {
             res
-                .type('text/xml')
+                .type('application/json')
                 .send(data)
                 .end();
         });

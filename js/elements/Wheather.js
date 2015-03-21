@@ -5,14 +5,16 @@ var momement = require('moment');
 // BALIBU LOCATION 60.6523156, 8.0265064,2137
 
 function getWheater(location) {
-    return $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric");
+    return $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c");
 }
 
 var WheatherWidget = React.createClass({
     DAYS: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"],
+    NEAR: ["I dag", "I morgen"],
     render: function () {
-        var dayName = this.DAYS[momement(this.props.data.dt*1000).weekday()];
+        var dayName = this.props.index > 1 ? this.DAYS[momement(this.props.data.dt*1000).weekday()] : this.NEAR[this.props.index];
         var icon = this.props.data.weather[0].icon;
+        console.log("key", this.props.index);
         return (
             <div className='weather-widget'>
                 <img className="weather-icon" src={'http://openweathermap.org/img/w/'+icon+'.png'}/>
@@ -41,7 +43,7 @@ module.exports = React.createClass({
         var wheatherWidgets;
         if (this.state.wheatherData) {
             wheatherWidgets = this.state.wheatherData.list.map(function (data, index) {
-                return (<WheatherWidget key={index} data={data} />);
+                return (<WheatherWidget key={index} index={index} data={data} />);
             });
         }
 
