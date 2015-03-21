@@ -2,8 +2,8 @@
   "name": "Balibu",
   "private": true,
   "scripts": {
-        "postinstall": "node node_modules/.bin/gulp default"
-    },
+    "postinstall": "node node_modules/.bin/gulp default"
+  },
   "dependencies": {
     "browserify": "^6.0.3",
     "connect-history-api-fallback": "0.0.5",
@@ -20,6 +20,7 @@
     "page": "^1.4.1",
     "react": "^0.12.2",
     "reactify": "^1.0.0",
+    "request": "^2.53.0",
     "run-sequence": "^1.0.1",
     "vinyl-source-stream": "^1.0.0"
   }

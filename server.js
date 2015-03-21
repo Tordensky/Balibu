@@ -2,6 +2,7 @@ var http = require('http');
 var express = require('express');
 var util = require('util');
 var historyApiFallback = require('connect-history-api-fallback');
+var request = require('request');
 historyApiFallback.setLogger(console.log.bind(console));
 
 
@@ -21,32 +22,20 @@ app.use(function (err, req, res, next) {
 });
 
 
+var WEATHER_URL = "http://api.openweathermap.org" +
+    "/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c";
+
 app.get('/api/weather', function (req, res) {
-    console.log("Got request for wheateher in: ");
+    console.log("Got request for wheather in: ");
 
-    var options = {
-        host: "http://api.openweathermap.org",
-        port: 80,
-        path: '/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c',
-        method: 'GET'
-    };
-
-    http.request(options, function (response) {
-        console.log('STATUS: ' + response.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(response.headers));
-        var data = "";
-        response.on('data', function (chunk) {
-            console.log(chunk);
-            data += chunk;
-        });
-
-        response.on('end', function () {
-            res
-                .type('application/json')
-                .send(data)
+    request(WEATHER_URL, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(body); // Show the HTML for the Google homepage.
+            res.type('application/json')
+                .send(body)
                 .end();
-        });
-    }).end();
+        }
+    });
 });
 
 var server = http.createServer(app);

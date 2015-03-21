@@ -5,7 +5,8 @@ var momement = require('moment');
 // BALIBU LOCATION 60.6523156, 8.0265064,2137
 
 function getWheater(location) {
-    return $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c");
+    return $.get("/api/weather");
+    //return $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c");
 }
 
 var WheatherWidget = React.createClass({
