@@ -87,11 +87,13 @@ var WeatherWidget = React.createClass({
         return (
             <div className='weather-widget'>
                 <div className="row">
+
                     <div className="col-lg-6">
                         <img className="weather-icon" src={'weather/' + icon.substr(0, 3) + '.png'}/>
                     </div>
                     <div className="col-lg-6">
                         <div className='weather-location'>{dayName}</div>
+                        <div className='weather-date'>{momement(this.props.data.dt * 1000).format('DD.MM.YY')}</div>
                         <div className="big-temperature">{Math.round(this.props.data.temp.day, 2)}</div>
                     </div>
                 </div>
