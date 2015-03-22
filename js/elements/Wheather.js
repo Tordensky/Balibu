@@ -35,7 +35,7 @@ var WindData = React.createClass({
     render: function () {
         return (
             <div className="wind-container">
-                <div className="wind-speed">{this.props.speed}ms</div>
+                <div className="wind-speed">{this.props.speed} m/s</div>
                 <div className="wind-direction">{this.props.deg}</div>
             </div>
             );
@@ -83,7 +83,7 @@ var WeatherWidget = React.createClass({
         var dayName = this.props.index > 1 ? this.DAYS[momement(this.props.data.dt * 1000).weekday()] : this.NEAR[this.props.index];
         var icon = this.props.data.weather[0].icon;
 
-        var snow = this.props.data.snow ? (<div>Snø: {this.props.data.snow}mm</div>) : null;
+        var snow = this.props.data.snow ? (<div><div><img className="snow-crystal" src='images/crystal.png'/></div>Snø: {this.props.data.snow} mm</div>) : null;
         return (
             <div className='weather-widget'>
                 <div className="row">
