@@ -73,11 +73,13 @@ var WeatherWidget = React.createClass({
         var dayName = this.props.index > 1 ? this.DAYS[momement(this.props.data.dt * 1000).weekday()] : this.NEAR[this.props.index];
         var icon = this.props.data.weather[0].icon;
 
+        var snow = this.props.data.snow ? (<div>Snø: {this.props.data.snow}mm</div>) : null;
         return (
             <div className='weather-widget'>
                 <div className='weather-location'>{dayName}</div>
                 <img className="weather-icon" src={'weather/' + icon.substr(0, 3) + '.png'}/>
                 <div className='weather-temp'>{Math.round(this.props.data.temp.day, 2)}</div>
+                {snow}
                 <TemperatureData data={this.props.data.temp}/>
                 <WindData speed={this.props.data.speed} deg={this.props.data.deg}/>
             </div>

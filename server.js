@@ -23,7 +23,7 @@ app.use(function (err, req, res, next) {
 
 
 var WEATHER_URL = "http://api.openweathermap.org" +
-    "/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c";
+    "/data/2.5/forecast/daily?lat=60.65785&lon=8.0269&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c";
 
 app.get('/api/weather', function (req, res) {
     console.log("Got request for wheather in: ");
