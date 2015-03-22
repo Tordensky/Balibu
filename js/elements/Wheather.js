@@ -9,18 +9,77 @@ function getWheater(location) {
     //return $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c");
 }
 
-var WheatherWidget = React.createClass({
+
+var exampleData = {"dt": 1427454000,
+    "temp": {"day": -4.01,
+        "min": -8.11,
+        "max": -4.01,
+        "night": -7.19,
+        "eve": -5.67,
+        "morn": -8.11},
+    "pressure": 888.71,
+    "humidity": 0,
+    "weather": [
+        {"id": 601,
+            "main": "Snow",
+            "description": "snow",
+            "icon": "13d"}
+    ],
+    "speed": 1.71,
+    "deg": 82,
+    "clouds": 91,
+    "snow": 5.34
+};
+
+var WindData = React.createClass({
+    render: function () {
+        return (
+            <div className="wind-container">
+                <div className="wind-speed">{this.props.speed}ms</div>
+                <div className="wind-direction">{this.props.deg}</div>
+            </div>
+            );
+    }
+});
+
+var Temperature = React.createClass({
+    render: function () {
+        return (
+            <div className="temperature-container">
+                <div className="temperature-title">{this.props.title}</div>
+                <div className="temperature-value">{Math.round(this.props.temp)}</div>
+            </div>
+            );
+    }
+});
+
+var TemperatureData = React.createClass({
+    render: function () {
+        return (
+            <div className="temperature-data">
+                <Temperature title="00:00 -> 06:00" temp={this.props.data.night}/>
+                <Temperature title="06:00 -> 12:00" temp={this.props.data.morn}/>
+                <Temperature title="12:00 -> 18:00" temp={this.props.data.day}/>
+                <Temperature title="18:00 -> 00:00" temp={this.props.data.eve}/>
+            </div>
+            );
+    }
+});
+
+var WeatherWidget = React.createClass({
     DAYS: ["Søndag", "Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag"],
     NEAR: ["I dag", "I morgen"],
     render: function () {
-        var dayName = this.props.index > 1 ? this.DAYS[momement(this.props.data.dt*1000).weekday()] : this.NEAR[this.props.index];
+        var dayName = this.props.index > 1 ? this.DAYS[momement(this.props.data.dt * 1000).weekday()] : this.NEAR[this.props.index];
         var icon = this.props.data.weather[0].icon;
-        console.log("key", this.props.index);
+
         return (
             <div className='weather-widget'>
-                <img className="weather-icon" src={'http://openweathermap.org/img/w/'+icon+'.png'}/>
-                <div className='weather-temp'>{Math.round(this.props.data.temp.day, 2)}</div>
                 <div className='weather-location'>{dayName}</div>
+                <img className="weather-icon" src={'weather/' + icon + '.png'}/>
+                <div className='weather-temp'>{Math.round(this.props.data.temp.day, 2)}</div>
+                <TemperatureData data={this.props.data.temp}/>
+                <WindData speed={this.props.data.speed} deg={this.props.data.deg}/>
             </div>
             )
     }
@@ -29,28 +88,28 @@ var WheatherWidget = React.createClass({
 
 module.exports = React.createClass({
     getInitialState: function () {
-        return {wheatherData: null};
+        return {weatherData: null};
     },
 
-    componentWillMount: function() {
+    componentWillMount: function () {
         var that = this;
-        getWheater("oslo").done(function (wheatherData) {
-            console.log("got data", wheatherData);
-            that.setState({wheatherData: wheatherData});
+        getWheater("oslo").done(function (weatherData) {
+            console.log("got data", weatherData);
+            that.setState({weatherData: weatherData});
         });
     },
 
     render: function () {
-        var wheatherWidgets;
-        if (this.state.wheatherData) {
-            wheatherWidgets = this.state.wheatherData.list.map(function (data, index) {
-                return (<WheatherWidget key={index} index={index} data={data} />);
+        var weatherWidgets;
+        if (this.state.weatherData) {
+            weatherWidgets = this.state.weatherData.list.map(function (data, index) {
+                return (<WeatherWidget key={index} index={index} data={data} />);
             });
         }
 
         return (
-            <div className='wheather-container'>
-                {wheatherWidgets}
+            <div className='weather-container'>
+                {weatherWidgets}
             </div>
             )
     }
