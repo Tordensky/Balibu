@@ -46,8 +46,8 @@ var Temperature = React.createClass({
     render: function () {
         return (
             <div className="temperature-container">
-                <div className="temperature-title">{this.props.title}</div>
                 <div className="temperature-value">{Math.round(this.props.temp)}</div>
+                <div className="temperature-title">{this.props.title}</div>
             </div>
             );
     }
@@ -57,10 +57,20 @@ var TemperatureData = React.createClass({
     render: function () {
         return (
             <div className="temperature-data">
-                <Temperature title="00:00 -> 06:00" temp={this.props.data.night}/>
-                <Temperature title="06:00 -> 12:00" temp={this.props.data.morn}/>
-                <Temperature title="12:00 -> 18:00" temp={this.props.data.day}/>
-                <Temperature title="18:00 -> 00:00" temp={this.props.data.eve}/>
+                <div className="row">
+                    <div className="col-lg-6">
+                        <Temperature title="00:00 - 06:00" temp={this.props.data.night}/>
+                    </div>
+                    <div className="col-lg-6">
+                        <Temperature title="06:00 - 12:00" temp={this.props.data.morn}/>
+                    </div>
+                    <div className="col-lg-6">
+                        <Temperature title="12:00 - 18:00" temp={this.props.data.day}/>
+                    </div>
+                    <div className="col-lg-6">
+                        <Temperature title="18:00 - 00:00" temp={this.props.data.eve}/>
+                    </div>
+                </div>
             </div>
             );
     }
@@ -76,12 +86,28 @@ var WeatherWidget = React.createClass({
         var snow = this.props.data.snow ? (<div>Snø: {this.props.data.snow}mm</div>) : null;
         return (
             <div className='weather-widget'>
-                <div className='weather-location'>{dayName}</div>
-                <img className="weather-icon" src={'weather/' + icon.substr(0, 3) + '.png'}/>
-                <div className='weather-temp'>{Math.round(this.props.data.temp.day, 2)}</div>
-                {snow}
-                <TemperatureData data={this.props.data.temp}/>
-                <WindData speed={this.props.data.speed} deg={this.props.data.deg}/>
+                <div className="row">
+                    <div className="col-lg-6">
+                        <img className="weather-icon" src={'weather/' + icon.substr(0, 3) + '.png'}/>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className='weather-location'>{dayName}</div>
+                        <div className="big-temperature">{Math.round(this.props.data.temp.day, 2)}</div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-6">
+                        <WindData speed={this.props.data.speed} deg={this.props.data.deg}/>
+                    </div>
+                    <div className="col-lg-6">
+                        {snow}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-12">
+                        <TemperatureData data={this.props.data.temp}/>
+                    </div>
+                </div>
             </div>
             )
     }

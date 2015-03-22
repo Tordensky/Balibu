@@ -1,3 +1,29 @@
+$base-padding: 10px;
+
+
+.row {
+  clear: both;
+  padding-bottom: $base-padding;
+
+  &:after {
+    display: table;
+    content: ' ';
+    clear: both;
+  }
+}
+
+.col-lg-6 {
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+}
+
+.col-lg-3 {
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+}
+
 .wheather-container {
   height: 100px;
   width: 100%;
@@ -13,30 +39,41 @@
 }
 
 .weather-widget {
+  text-align: center;
   box-sizing: border-box;
   float: left;
   width: 14.2857142857%;
-  padding: 0 1%
+  padding: 0 1%;
+
+  border-right: solid lightblue 2px;
+
+  &:last-of-type {
+    border-right: none;
+  }
 }
 
 .weather-icon {
-  width: 80%;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.big-temperature,
 .temperature-value,
 .weather-temp {
   color: white;
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
-  padding-top: 1rem;
 
   &:after {
     content: '°';
   }
+}
+
+.big-temperature {
+  font-size: 3rem;
 }
 
 .weather-location {
@@ -44,4 +81,21 @@
   color: white;
   padding-top: 1rem;
   font-size: 1.4rem;
+}
+
+.temperature-container {
+  margin: 0.2rem;
+  margin-top: $base-padding;
+}
+
+.temperature-title {
+  color: darkgrey;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.temperature-value {
+    border-bottom: solid lightblue 2px;
+
+  font-size: 1.5rem;
 }
