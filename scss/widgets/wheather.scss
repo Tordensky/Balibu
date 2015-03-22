@@ -99,11 +99,33 @@ $base-padding: 10px;
 }
 
 .temperature-value {
-    border-bottom: solid lightblue 2px;
-
+  border-bottom: solid lightblue 2px;
   font-size: 1.5rem;
 }
 
 .snow-crystal {
-  width: 1.5rem;
+
+  img {
+    box-sizing: border-box;
+    height: 1.3rem;
+  }
+}
+
+.wind-container {
+}
+
+.wind-direction {
+  height: 1.5rem;
+}
+
+.wind-speed {
+
+}
+
+.snow-container {
+
+}
+
+.snow-value {
+
 }
