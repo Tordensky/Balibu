@@ -32,10 +32,19 @@ var exampleData = {"dt": 1427454000,
 };
 
 var WindData = React.createClass({
+    componentDidMount: function() {
+        var degrees = this.props.deg;
+        $(this.refs.direction.getDOMNode())
+            .css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
+            '-moz-transform' : 'rotate('+ degrees +'deg)',
+            '-ms-transform' : 'rotate('+ degrees +'deg)',
+            'transform' : 'rotate('+ degrees +'deg)'});
+    },
+
     render: function () {
         return (
             <div className="wind-container">
-                <div className="wind-direction">{this.props.deg}</div>
+                <div  className="wind-direction"><img ref="direction" src='images/pointer.png'/></div>
                 <div className="wind-speed">{this.props.speed} m/s</div>
             </div>
             );
