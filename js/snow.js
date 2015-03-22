@@ -13,8 +13,6 @@ window.onload = function(){
 	canvas.height = H;
 
     window.onresize = function(event) {
-
-        console.log("resize");
         //canvas dimensions
         W = container.offsetWidth;
         H = container.offsetHeight; //
