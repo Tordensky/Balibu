@@ -84,7 +84,7 @@ $base-padding: 20px;
 }
 
 // Tablett styling
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-device-width: 1350px), only screen and (max-width: 1350px)  {
   .col-md-12 {
     width: 100%;
   }
@@ -135,7 +135,7 @@ $base-padding: 20px;
 
 
 // Mobil styling
-@media only screen and (max-width: 800px) {
+@media only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
   .col-sm-12 {
     width: 100%;
   }
