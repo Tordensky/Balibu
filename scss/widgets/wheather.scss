@@ -1,28 +1,28 @@
 $base-padding: 10px;
 
 
-.row {
-  clear: both;
-  padding-bottom: $base-padding;
-
-  &:after {
-    display: table;
-    content: ' ';
-    clear: both;
-  }
-}
-
-.col-lg-6 {
-  box-sizing: border-box;
-  float: left;
-  width: 50%;
-}
-
-.col-lg-3 {
-  box-sizing: border-box;
-  float: left;
-  width: 25%;
-}
+//.row {
+//  clear: both;
+//  padding-bottom: $base-padding;
+//
+//  &:after {
+//    display: table;
+//    content: ' ';
+//    clear: both;
+//  }
+//}
+//
+//.col-lg-6 {
+//  box-sizing: border-box;
+//  float: left;
+//  width: 50%;
+//}
+//
+//.col-lg-3 {
+//  box-sizing: border-box;
+//  float: left;
+//  width: 25%;
+//}
 
 .wheather-container {
   height: 100px;
@@ -42,10 +42,12 @@ $base-padding: 10px;
   text-align: center;
   box-sizing: border-box;
   float: left;
-  width: 14.2857142857%;
+  //width: 14.2857142857%;
   padding: 0 1%;
 
   border-right: solid lightblue 2px;
+
+  margin-bottom: 3rem;
 
   &:last-of-type {
     border-right: none;

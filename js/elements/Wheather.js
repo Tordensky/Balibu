@@ -99,7 +99,7 @@ var WeatherWidget = React.createClass({
             </div>) : null;
 
         return (
-            <div className='weather-widget'>
+            <div className='weather-widget col-lg-special-7 col-md-3 col-sm-6'>
                 <div className="row">
 
                     <div className="col-lg-6">
