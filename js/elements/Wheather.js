@@ -147,7 +147,9 @@ module.exports = React.createClass({
         var weatherWidgets;
         if (this.state.weatherData) {
             weatherWidgets = this.state.weatherData.list.map(function (data, index) {
-                return (<WeatherWidget key={index} index={index} data={data} />);
+                if (index <  7) {
+                    return (<WeatherWidget key={index} index={index} data={data} />);
+                }
             });
         }
 
