@@ -86,7 +86,7 @@ $base-padding: 20px;
 // Tablett styling
 @media only screen and (max-device-width: 1350px), only screen and (max-width: 1350px)  {
   html {
-    font-size: 150%;
+    font-size: 120%;
   }
 
   .col-md-12 {
@@ -141,7 +141,7 @@ $base-padding: 20px;
 // Mobil styling
 @media only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
   html {
-    font-size: 300%;
+    font-size: 180%;
   }
 
   .col-sm-12 {
