@@ -9,28 +9,6 @@ function getWheater(location) {
     //return $.get("http://api.openweathermap.org/data/2.5/forecast/daily?lat=60.6523156&lon=8.0265064&units=metric&APPID=e63abeb43da0539704aa48fd21deeb6c");
 }
 
-
-var exampleData = {"dt": 1427454000,
-    "temp": {"day": -4.01,
-        "min": -8.11,
-        "max": -4.01,
-        "night": -7.19,
-        "eve": -5.67,
-        "morn": -8.11},
-    "pressure": 888.71,
-    "humidity": 0,
-    "weather": [
-        {"id": 601,
-            "main": "Snow",
-            "description": "snow",
-            "icon": "13d"}
-    ],
-    "speed": 1.71,
-    "deg": 82,
-    "clouds": 91,
-    "snow": 5.34
-};
-
 var WindData = React.createClass({
     componentDidMount: function() {
         var degrees = this.props.deg;

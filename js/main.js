@@ -1,5 +1,5 @@
-var React = require('react');
-var App = require('./elements/App');
+import React from 'react';
+import App from './elements/App';
 
 require('./snow');
 

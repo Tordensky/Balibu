@@ -1,8 +1,8 @@
-var _ = require("lodash");
-var React = require("react");
+import _ from "lodash";
+import React from "react";
 
-var Logo = require('./Logo.js');
-var Wheather = require('./Wheather.js');
+import Logo from './Logo.js';
+import Wheather from './Wheather.js';
 
 module.exports = React.createClass({
     render: function() {

@@ -11,7 +11,8 @@ var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
 var buffer = require('vinyl-buffer');
 
-var reactify = require('reactify');
+var babelify = require("babelify");
+
 
 var paths = {
     js: {
@@ -53,7 +54,7 @@ gulp.task('watch-sass', ['build-sass'], function() {
 
 gulp.task('build-js', function() {
     browserify(paths.js.src, {debug: true})
-        .transform(reactify)
+        .transform(babelify)
         .bundle()
         .pipe(plumber())
         .pipe(source('bundle.js'))
@@ -63,7 +64,7 @@ gulp.task('build-js', function() {
 
 gulp.task('build-js-dist', function() {
     browserify(paths.js.src)
-        .transform(reactify)
+        .transform(babelify)
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(plumber())
